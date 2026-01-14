@@ -1,3 +1,102 @@
+DecoDream - متجر إلكتروني لإدارة المنتجات والطلبات
+===============================================
+
+نظرة عامة
+---------
+مشروع DecoDream هو تطبيق متجر إلكتروني مبني باستخدام Laravel لتخزين وإدارة المنتجات، الصور، الأقسام، الألوان، الأقمشة، الأخشاب، والطلبات، مع نظام مستخدمين وموظفين وصلاحيات.
+
+الميزات الرئيسية
+----------------
+- إدارة المنتجات والصور والأنواع (الألوان، الأقمشة، الأخشاب)
+- سلة/طلبات وقطع الطلب (Order + OrderItem)
+- مفضلات المستخدمين
+- نظام موظفين وصلاحيات (Roles)
+- إرسال إيميلات (ترحيب، كود تحقق، تحديث ملف)
+- واجهة API موثقة (OpenAPI / Postman)
+
+التقنيات المستخدمة
+------------------
+- PHP 8+ و Laravel
+- Composer لإدارة الحزم
+- Vite + NPM للواجهات الأمامية
+- PHPUnit للاختبارات
+
+المتطلبات
+---------
+- PHP 8 أو أحدث
+- Composer
+- Node.js و npm
+- خادم قاعدة بيانات (MySQL / MariaDB)
+- Laragon أو بيئة تطوير محلية مماثلة (اختياري)
+
+إعداد المشروع وتشغيله محلياً
+---------------------------
+1. استنساخ المستودع:
+
+   git clone <repo-url>
+   cd DecoDream
+
+2. تثبيت تبعيات PHP:
+
+   composer install
+
+3. تثبيت تبعيات JavaScript:
+
+   npm install
+
+4. إعداد ملف البيئة:
+
+   - انسخ `.env.example` إلى `.env` ثم عدّل إعدادات قاعدة البيانات والبريد.
+   - أنشئ مفتاح التطبيق:
+
+     php artisan key:generate
+
+5. تشغيل قواعد البيانات والهجرات:
+
+   php artisan migrate --seed
+
+6. بناء الأصول (خلال التطوير):
+
+   npm run dev
+
+7. تشغيل الخادم المحلي:
+
+   php artisan serve
+
+ملاحظة: يمكنك استخدام Laragon أو أي بيئة تطوير محلية لتشغيل المشروع بسهولة.
+
+توثيق الـ API وملفات مفيدة
+-------------------------
+- ملف OpenAPI: [openapi.yaml](openapi.yaml)
+- مجموعة Postman: [thunder-collection_postman_APIs Authentication.json](thunder-collection_postman_APIs%20Authentication.json)
+
+اختبارات
+--------
+لتشغيل الاختبارات الوحدوية:
+
+   ./vendor/bin/phpunit
+
+المساهمة
+--------
+- فتح Issue أو إرسال Pull Request للميزات أو التصحيحات.
+- اتبع قواعد التزام واضحة (commit messages) ووصف التغييرات.
+
+الرخصة
+------
+أضف هنا نوع الرخصة (مثال: MIT) أو رابط إلى ملف `LICENSE` إن وجد.
+
+اتصال
+-----
+لمزيد من المعلومات أو أسئلة التطوير، راجع `README` في المستودع أو افتح Issue على GitHub.
+
+ملفات مهمة في المشروع
+---------------------
+- الكود الأساسي: `app/`
+- مسارات الـ API: `routes/api.php`
+- تكوينات: `config/`
+- ملف OpenAPI: [openapi.yaml](openapi.yaml)
+- مجموعة Postman: [thunder-collection_postman_APIs Authentication.json](thunder-collection_postman_APIs%20Authentication.json)
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
