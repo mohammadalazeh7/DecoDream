@@ -1,0 +1,128 @@
+{
+    "info": {
+        "_postman_id": "8156775e-7c1f-415f-9619-a22e3e734e67",
+        "name": "APIs Authentication",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Registering",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "127.0.0.1:8000/api/registering?name=jafar&email=jafarshurba1@gamil.com&password=123456789&password_confirmation=123456789",
+                    "query": [
+                        {
+                            "key": "name",
+                            "value": "jafar"
+                        },
+                        {
+                            "key": "email",
+                            "value": "jafarshurba1@gamil.com"
+                        },
+                        {
+                            "key": "password",
+                            "value": "123456789"
+                        },
+                        {
+                            "key": "password_confirmation",
+                            "value": "123456789"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "api",
+                        "registering"
+                    ],
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "127.0.0.1:8000/api/login?email=jafarshurba@gamil.com&password=123456789",
+                    "query": [
+                        {
+                            "key": "email",
+                            "value": "jafarshurba@gamil.com"
+                        },
+                        {
+                            "key": "password",
+                            "value": "123456789"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "api",
+                        "login"
+                    ],
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "logout",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "127.0.0.1:8000/api/logout",
+                    "path": [
+                        "api",
+                        "logout"
+                    ],
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "1|j64cpBDZazxwhw0dqTogEKgqQCBO86dxFwXjqpD90f7818b3",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
