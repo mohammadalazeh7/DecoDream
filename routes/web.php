@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // صفحة تسجيل الدخول
 Route::get('/', [AuthDashboardController::class, 'showLogin'])->name('login');
 Route::get('/auth/login', [AuthDashboardController::class, 'showLogin'])->name('login');
-Route::post('/auth/login', [AuthDashboardController::class, 'login']);
+Route::post('/auth/login', [AuthDashboardController::class, 'login'])->name('auth.login.submit');
 // عرض صفحة الفورغيت باسورد
 Route::get('/auth/forgot-password', function () {
     return view('auth.forgot-password');
@@ -69,9 +69,8 @@ Route::middleware(['auth:employee'])->group(function () {
             Route::get('employees/{employee}/delete', [DashboardEmployeeController::class, 'delete'])->name('employees.delete');
 
             Route::resource('users', DashboardUserController::class)->only(['index', 'destroy']);
-            
-            Route::get('users/{user}/orders', [DashboardUserController::class, 'orders'])->name('users.orders');
 
+            Route::get('users/{user}/orders', [DashboardUserController::class, 'orders'])->name('users.orders');
         });
 
         // إدارة المنتجات والفئات (لمدير المنتجات فقط)
@@ -102,7 +101,6 @@ Route::middleware(['auth:employee'])->group(function () {
             Route::resource('orders', DashboardOrderController::class);
 
             Route::patch('orders/{order}/status', [DashboardOrderController::class, 'updateStatus'])->name('orders.update.status');
-
         });
 
 
@@ -119,7 +117,6 @@ Route::middleware(['auth:employee'])->group(function () {
             Route::resource('complaints', DashboardcomplaintController::class)->except(['create', 'store']);
 
             Route::get('complaints/{complaint}/delete', [DashboardcomplaintController::class, 'delete'])->name('complaints.delete');
-
         });
 
         Route::get('/map', [MapController::class, 'showMap']);
@@ -128,5 +125,4 @@ Route::middleware(['auth:employee'])->group(function () {
 
 
     });
-
 });

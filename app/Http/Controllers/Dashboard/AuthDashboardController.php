@@ -9,6 +9,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthDashboardController extends Controller
 {
@@ -76,7 +77,7 @@ class AuthDashboardController extends Controller
         $employee->reset_code_expires_at = now()->addMinutes(15);
         $employee->save();
 
-        \Mail::to($employee->email)->send(new VerificationCodeEmail($code));
+        Mail::to($employee->email)->send(new VerificationCodeEmail($code));
 
         // الانتقال مباشرة لصفحة إدخال الكود مع تمرير الإيميل
         return redirect()->route('auth.check-code')->withInput(['email' => $request->email]);
@@ -131,10 +132,3 @@ class AuthDashboardController extends Controller
 
 
 }
-
-
-
-
-
-
-
